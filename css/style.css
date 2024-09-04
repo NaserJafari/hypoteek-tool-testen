@@ -1,9 +1,145 @@
+/* Algemene reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-.rentejaar-error {
+body {
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+  padding: 20px;
+}
+
+.split {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+
+/* Titel styling */
+.title h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 32px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Error messages styling */
+.error-msg {
+  margin-bottom: 20px;
+}
+
+.error-msg h2 {
+  color: #e74c3c;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Form styling */
+.form-tool {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form-tool label {
+  font-size: 1rem;
+  color: #34495e;
+  margin-bottom: 8px;
+  display: block;
+  text-align: left;
+}
+
+.form-tool input,
+.form-tool select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #dcdde1;
+  border-radius: 8px;
+  background-color: #ecf0f1;
+  font-size: 0.9rem;
+  color: #2c3e50;
+}
+
+.form-tool input:focus,
+.form-tool select:focus {
+  outline: none;
+  border-color: #2980b9;
+  background-color: #fff;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2980b9;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 8px;
+}
+
+button:hover {
+  background-color: #3498db;
+}
+
+/* Resultaten sectie */
+#results {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 16px; /* Minder padding voor compactere weergave */
+  max-width: 260px; /* Maak de sectie smaller */
+  width: 100%;
+  margin-top: 24px;
+}
+
+#results h2 {
+  font-size: 0.9rem; /* Iets kleinere tekst voor compactere layout */
+  color: #34495e;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+#results p {
+  font-size: 0.9rem; /* Iets kleinere tekst */
+  color: #2c3e50;
+  margin-bottom: 12px; /* Minder ruimte onder de paragrafen */
+}
+
+.hidden {
   display: none;
+}
+
+/* Media queries voor responsiviteit */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    height: auto;
+  }
+
+  .form-tool,
+  #results {
+    padding: 20px;
+  }
+
+  .title h1 {
+    font-size: 1.8rem;
+  }
 }
