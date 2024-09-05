@@ -26,7 +26,7 @@ const rentePerMonth = {
   5: 0.03 / 12,
   10: 0.035 / 12,
   20: 0.045 / 12,
-  30: 0.005 / 12,
+  30: 0.05 / 12,
 };
 
 const monthRente = {
@@ -75,7 +75,7 @@ const calculation = function (yearlyIncome, renteInput, studieSchuld) {
   const rentePercentage = rentePerMonth[renteInput];
   const renteMonth = monthRente[renteInput];
   const rente = maxHypoteekLast * rentePercentage;
-  const aflossing = maxHypoteekLast / 360;
+  const aflossing = maxHypoteekLast / monthRente[renteInput];
   const monthlyPay = rente + aflossing;
   const totalRenteYear = monthlyPay * renteMonth;
 
