@@ -123,6 +123,14 @@ button:hover {
   margin-bottom: 12px; /* Minder ruimte onder de paragrafen */
 }
 
+.results-title h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 32px;
+  text-align: center;
+  font-weight: 600;
+}
+
 .hidden {
   display: none;
 }

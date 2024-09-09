@@ -94,7 +94,9 @@ const calculation = function (yearlyIncome, renteInput, studieSchuld) {
 
 const showResult = function (result) {
   const results = document.getElementById("results");
+  const resultsTitle = document.getElementById("results-title");
   results.classList.remove("hidden");
+  resultsTitle.classList.remove("hidden");
 
   document.getElementById("result-yearly-income").textContent =
     result.yearlyIncome;
