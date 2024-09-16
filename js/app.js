@@ -1,7 +1,6 @@
 "use strict";
 
 const submit = document.getElementById("submit");
-const rentejaarError = document.getElementById("rentejaar-error");
 const maxTimeYearIncome = 4.25;
 
 let yearlyIncome = 0;
@@ -18,7 +17,9 @@ let rente = 0;
 const errorYearlyIncome = document.querySelector(".yearly");
 const errorWrongZipcode = document.querySelector(".wrong-zipcode");
 const errorNoZipcode = document.querySelector(".no-zipcode");
-const closeErrorMsg = document.getElementById("close-error-msg");
+const errorRente = document.querySelector(".rente");
+const errorStudieSchuld = document.querySelector(".studieschuld");
+console.log(errorStudieSchuld);
 
 // rentepercentages per jaar
 const rentePerMonth = {
@@ -37,8 +38,8 @@ const monthRente = {
   30: 360,
 };
 
-const checkYearlyIncome = function (monthlyIncome) {
-  if (monthlyIncome === 0 || isNaN(monthlyIncome)) {
+const checkYearlyIncome = function (yearlyIncome) {
+  if (yearlyIncome === 0 || isNaN(yearlyIncome)) {
     errorYearlyIncome.classList.remove("hidden");
     setTimeout(() => {
       errorYearlyIncome.classList.add("hidden");
@@ -60,6 +61,25 @@ const checkZipcode = function (zipcode) {
     errorWrongZipcode.classList.remove("hidden");
     setTimeout(() => {
       errorWrongZipcode.classList.add("hidden");
+    }, 1500);
+  }
+};
+
+const checkRente = function (rente) {
+  if (rente === 0 || isNaN(rente)) {
+    errorRente.classList.remove("hidden");
+    setTimeout(() => {
+      errorRente.classList.add("hidden");
+    }, 1500);
+  }
+};
+
+// check of er een studieschuld is ingevuld
+const checkStudieSchuld = function (studieSchuld) {
+  if (studieSchuld !== "yes" && studieSchuld !== "no") {
+    errorStudieSchuld.classList.remove("hidden");
+    setTimeout(() => {
+      errorStudieSchuld.classList.add("hidden");
     }, 1500);
   }
 };
@@ -126,6 +146,18 @@ submit.addEventListener("click", function () {
 
   checkYearlyIncome(yearlyIncome);
   checkZipcode(zipcode);
+  checkRente(rente);
+  checkStudieSchuld(studieSchuld);
+
+  if (
+    yearlyIncome === 0 ||
+    isNaN(yearlyIncome) ||
+    zipcode === 0 ||
+    isNaN(zipcode)
+  ) {
+    return;
+  }
+
   const result = calculation(yearlyIncome, rente, studieSchuld);
   showResult(result);
 });
