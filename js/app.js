@@ -3,16 +3,6 @@
 const submit = document.getElementById("submit");
 const maxTimeYearIncome = 4.25;
 
-let yearlyIncome = 0;
-let studieSchuld = 0;
-let maxHypoteekLast = 0;
-let renteMonth = 0;
-let rentePercentage = 0;
-let aflossing = 0;
-let monthlyPay = 0;
-let totalRenteYear = 0;
-let rente = 0;
-
 // Error messages
 const errorYearlyIncome = document.querySelector(".yearly");
 const errorWrongZipcode = document.querySelector(".wrong-zipcode");
@@ -58,11 +48,15 @@ const checkZipcode = function (zipcode) {
     setTimeout(() => {
       errorNoZipcode.classList.add("hidden");
     }, 1500);
+    return null;
   } else if (zipcode === 9679 || zipcode === 9681 || zipcode === 9682) {
-    errorWrongZipcode.classList.remove("hidden");
-    setTimeout(() => {
-      errorWrongZipcode.classList.add("hidden");
-    }, 1500);
+    if (errorWrongZipcode) {
+      errorWrongZipcode.classList.remove("hidden");
+      setTimeout(() => {
+        errorWrongZipcode.classList.add("hidden");
+      }, 1500);
+    }
+    return null;
   }
 
   return zipcode;
@@ -151,13 +145,14 @@ if (submit) {
     const studieSchuld = document.getElementById("studieschuld").value;
 
     checkYearlyIncome(yearlyIncome);
-    checkZipcode(zipcode);
+    const validZipcode = checkZipcode(zipcode);
     checkRente(rente);
     checkStudieSchuld(studieSchuld);
 
     if (
       yearlyIncome === 0 ||
       isNaN(yearlyIncome) ||
+      validZipcode === null ||
       zipcode === 0 ||
       isNaN(zipcode)
     ) {
@@ -168,6 +163,19 @@ if (submit) {
     showResult(result);
   });
 }
+
+const reset = document.getElementById("reset");
+reset.addEventListener("click", function () {
+  document.getElementById("yearly-income").value = "";
+  document.getElementById("zipcode").value = "";
+  document.getElementById("rentejaar").selectedIndex = 0;
+  document.getElementById("studieschuld").selectedIndex = 0;
+
+  const results = document.getElementById("results");
+  const resultsTitle = document.getElementById("results-title");
+  results.classList.add("hidden");
+  resultsTitle.classList.add("hidden");
+});
 
 module.exports = {
   checkYearlyIncome,
