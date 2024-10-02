@@ -79,5 +79,7 @@ test("calculate maxHypoteekLast with wrong zipcode", () => {
   const studieSchuld = "no";
 
   expect(checkZipcode(9679)).toBe(null);
-  expect(calculation(yearlyIncome, rente, studieSchuld)).toBe(undefined);
+  expect(calculation(yearlyIncome, rente, studieSchuld, zipcode)).toBe(
+    undefined
+  );
 });

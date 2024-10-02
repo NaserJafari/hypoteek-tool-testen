@@ -48,14 +48,12 @@ const checkZipcode = function (zipcode) {
     setTimeout(() => {
       errorNoZipcode.classList.add("hidden");
     }, 1500);
-    return null;
   } else if (zipcode === 9679 || zipcode === 9681 || zipcode === 9682) {
-    if (errorWrongZipcode) {
-      errorWrongZipcode.classList.remove("hidden");
-      setTimeout(() => {
-        errorWrongZipcode.classList.add("hidden");
-      }, 1500);
-    }
+    errorWrongZipcode?.classList.remove("hidden");
+    setTimeout(() => {
+      errorWrongZipcode.classList.add("hidden");
+    }, 1500);
+
     return null;
   }
 
@@ -84,7 +82,10 @@ const checkStudieSchuld = function (studieSchuld) {
 };
 
 // berekening van de rente, maximale te lenen bedrag en aflossing en hoeveel dat over de jares is in maanden
-const calculation = function (yearlyIncome, renteInput, studieSchuld) {
+const calculation = function (yearlyIncome, renteInput, studieSchuld, zipcode) {
+  if (zipcode === 9679 || zipcode === 9681 || zipcode === 9682) {
+    return;
+  }
   let maxHypoteekLast = yearlyIncome * maxTimeYearIncome;
 
   if (studieSchuld === "yes") {
@@ -108,6 +109,7 @@ const calculation = function (yearlyIncome, renteInput, studieSchuld) {
     monthlyPay,
     totalRenteYear,
     rente,
+    zipcode,
   };
 };
 
@@ -137,35 +139,33 @@ const showResult = function (result) {
     result.totalRenteYear.toFixed(2);
 };
 
-if (submit) {
-  submit.addEventListener("click", function () {
-    const yearlyIncome = Number(document.getElementById("yearly-income").value);
-    const zipcode = Number(document.getElementById("zipcode").value);
-    const rente = Number(document.getElementById("rentejaar").value);
-    const studieSchuld = document.getElementById("studieschuld").value;
+submit?.addEventListener("click", function () {
+  const yearlyIncome = Number(document.getElementById("yearly-income").value);
+  const zipcode = Number(document.getElementById("zipcode").value);
+  const rente = Number(document.getElementById("rentejaar").value);
+  const studieSchuld = document.getElementById("studieschuld").value;
 
-    checkYearlyIncome(yearlyIncome);
-    const validZipcode = checkZipcode(zipcode);
-    checkRente(rente);
-    checkStudieSchuld(studieSchuld);
+  checkYearlyIncome(yearlyIncome);
+  const validZipcode = checkZipcode(zipcode);
+  checkRente(rente);
+  checkStudieSchuld(studieSchuld);
 
-    if (
-      yearlyIncome === 0 ||
-      isNaN(yearlyIncome) ||
-      validZipcode === null ||
-      zipcode === 0 ||
-      isNaN(zipcode)
-    ) {
-      return;
-    }
+  if (
+    yearlyIncome === 0 ||
+    isNaN(yearlyIncome) ||
+    validZipcode === null ||
+    zipcode === 0 ||
+    isNaN(zipcode)
+  ) {
+    return;
+  }
 
-    const result = calculation(yearlyIncome, rente, studieSchuld);
-    showResult(result);
-  });
-}
+  const result = calculation(yearlyIncome, rente, studieSchuld, zipcode);
+  showResult(result);
+});
 
 const reset = document.getElementById("reset");
-reset.addEventListener("click", function () {
+reset?.addEventListener("click", function () {
   document.getElementById("yearly-income").value = "";
   document.getElementById("zipcode").value = "";
   document.getElementById("rentejaar").selectedIndex = 0;
