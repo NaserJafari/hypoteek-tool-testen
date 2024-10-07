@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1727893215650" clover="3.2.0">
-  <project timestamp="1727893215650" name="All files">
-    <metrics statements="187" coveredstatements="110" conditionals="20" coveredconditionals="14" methods="6" coveredmethods="4" elements="213" coveredelements="128" complexity="0" loc="187" ncloc="187" packages="1" files="1" classes="1"/>
+<coverage generated="1728308128850" clover="3.2.0">
+  <project timestamp="1728308128851" name="All files">
+    <metrics statements="188" coveredstatements="111" conditionals="20" coveredconditionals="14" methods="6" coveredmethods="4" elements="214" coveredelements="129" complexity="0" loc="188" ncloc="188" packages="1" files="1" classes="1"/>
     <file name="app.js" path="C:\Users\Nasid\Documenten\School\Testen\Leerjaar 4\hypoteek tool\js\app.js">
-      <metrics statements="187" coveredstatements="110" conditionals="20" coveredconditionals="14" methods="6" coveredmethods="4"/>
+      <metrics statements="188" coveredstatements="111" conditionals="20" coveredconditionals="14" methods="6" coveredmethods="4"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
@@ -118,9 +118,9 @@
       <line num="112" count="2" type="stmt"/>
       <line num="113" count="2" type="stmt"/>
       <line num="114" count="2" type="stmt"/>
-      <line num="115" count="1" type="stmt"/>
+      <line num="115" count="2" type="stmt"/>
       <line num="116" count="1" type="stmt"/>
-      <line num="117" count="0" type="stmt"/>
+      <line num="117" count="1" type="stmt"/>
       <line num="118" count="0" type="stmt"/>
       <line num="119" count="0" type="stmt"/>
       <line num="120" count="0" type="stmt"/>
@@ -144,9 +144,9 @@
       <line num="138" count="0" type="stmt"/>
       <line num="139" count="0" type="stmt"/>
       <line num="140" count="0" type="stmt"/>
-      <line num="141" count="1" type="stmt"/>
-      <line num="142" count="1" type="cond" truecount="0" falsecount="1"/>
-      <line num="143" count="0" type="stmt"/>
+      <line num="141" count="0" type="stmt"/>
+      <line num="142" count="1" type="stmt"/>
+      <line num="143" count="1" type="cond" truecount="0" falsecount="1"/>
       <line num="144" count="0" type="stmt"/>
       <line num="145" count="0" type="stmt"/>
       <line num="146" count="0" type="stmt"/>
@@ -168,11 +168,11 @@
       <line num="162" count="0" type="stmt"/>
       <line num="163" count="0" type="stmt"/>
       <line num="164" count="0" type="stmt"/>
-      <line num="165" count="1" type="stmt"/>
+      <line num="165" count="0" type="stmt"/>
       <line num="166" count="1" type="stmt"/>
       <line num="167" count="1" type="stmt"/>
-      <line num="168" count="1" type="cond" truecount="0" falsecount="1"/>
-      <line num="169" count="0" type="stmt"/>
+      <line num="168" count="1" type="stmt"/>
+      <line num="169" count="1" type="cond" truecount="0" falsecount="1"/>
       <line num="170" count="0" type="stmt"/>
       <line num="171" count="0" type="stmt"/>
       <line num="172" count="0" type="stmt"/>
@@ -181,7 +181,7 @@
       <line num="175" count="0" type="stmt"/>
       <line num="176" count="0" type="stmt"/>
       <line num="177" count="0" type="stmt"/>
-      <line num="178" count="1" type="stmt"/>
+      <line num="178" count="0" type="stmt"/>
       <line num="179" count="1" type="stmt"/>
       <line num="180" count="1" type="stmt"/>
       <line num="181" count="1" type="stmt"/>
@@ -191,6 +191,7 @@
       <line num="185" count="1" type="stmt"/>
       <line num="186" count="1" type="stmt"/>
       <line num="187" count="1" type="stmt"/>
+      <line num="188" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

@@ -92,10 +92,11 @@ const calculation = function (yearlyIncome, renteInput, studieSchuld, zipcode) {
     maxHypoteekLast *= 0.75;
   }
 
-  const rentePercentage = rentePerMonth[renteInput];
-  const renteMonth = monthRente[renteInput];
+  // neemt de renteperiode van 30 jaar, niemand weet hoe de markt verandert.
+  const rentePercentage = rentePerMonth[30];
+  const renteMonth = monthRente[30];
   const rente = maxHypoteekLast * rentePercentage;
-  const aflossing = maxHypoteekLast / monthRente[renteInput];
+  const aflossing = maxHypoteekLast / monthRente[30];
   const monthlyPay = rente + aflossing;
   const totalRenteYear = monthlyPay * renteMonth;
 
