@@ -82,7 +82,7 @@ const checkStudieSchuld = function (studieSchuld) {
 };
 
 // berekening van de rente, maximale te lenen bedrag en aflossing en hoeveel dat over de jares is in maanden
-const calculation = function (yearlyIncome, renteInput, studieSchuld, zipcode) {
+const calculation = function (yearlyIncome, studieSchuld, zipcode) {
   if (zipcode === 9679 || zipcode === 9681 || zipcode === 9682) {
     return;
   }
