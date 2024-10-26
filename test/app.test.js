@@ -36,6 +36,25 @@ test("rente is not a number", () => {
   expect(checkRente("3")).toBe("3");
 });
 
+// test calculate functie met verschillende waardes en input
+test("calculate maxHypoteekLast with 40000 yearlyIncome", () => {
+  const yearlyIncome = 40000;
+  const rente = 20;
+  const studieSchuld = "no";
+  const result = calculation(yearlyIncome, rente, studieSchuld);
+
+  expect(result.maxHypoteekLast).toBe(yearlyIncome * caclMaxHypoteekLast);
+});
+
+test("calculate maxHypoteekLast with 24000 yearlyIncome and with studieSchuld", () => {
+  const yearlyIncome = 24000;
+  const rente = 20;
+  const studieSchuld = "yes";
+  const result = calculation(yearlyIncome, rente, studieSchuld);
+
+  expect(result.maxHypoteekLast).toBe(yearlyIncome * caclMaxHypoteekLast);
+});
+
 // Tests voor de calculation functie
 // Integratie test die kijk naar de max hypotheek last zonder studieschuld en checkt of de zipcode, yearlyIncome en rente toegestaan is
 test("calculate maxHypoteekLast", () => {
