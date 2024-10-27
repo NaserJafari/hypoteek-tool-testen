@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">63.82% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>120/188</span>
+                <span class='fraction'>128/192</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">74.07% </span>
+                <span class="strong">74.19% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>20/27</span>
+                <span class='fraction'>23/31</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">83.33% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">66.66% </span>
-                <span class="quiet">Functions</span>
-                <span class='fraction'>4/6</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">63.82% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>120/188</span>
+                <span class='fraction'>128/192</span>
             </div>
         
             
@@ -251,7 +251,11 @@
 <a name='L186'></a><a href='#L186'>186</a>
 <a name='L187'></a><a href='#L187'>187</a>
 <a name='L188'></a><a href='#L188'>188</a>
-<a name='L189'></a><a href='#L189'>189</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -326,13 +330,15 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -344,6 +350,7 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
@@ -394,6 +401,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -513,14 +521,16 @@ const checkRente = function (rente) {
 };
 &nbsp;
 // check of er een studieschuld is ingevuld
-const checkStudieSchuld = <span class="fstat-no" title="function not covered" >function (studieSchuld) {</span>
-<span class="cstat-no" title="statement not covered" >  if (studieSchuld !== "yes" &amp;&amp; studieSchuld !== "no") {</span>
-<span class="cstat-no" title="statement not covered" >    errorStudieSchuld.classList.remove("hidden");</span>
-<span class="cstat-no" title="statement not covered" >    setTimeout(() =&gt; {</span>
+const checkStudieSchuld = function (studieSchuld) {
+  if (studieSchuld !== "yes" &amp;&amp; studieSchuld !== "no") {
+    errorStudieSchuld<span class="branch-0 cbranch-no" title="branch not covered" >?.classList.</span>remove("hidden");
+    setTimeout(() =&gt; {
 <span class="cstat-no" title="statement not covered" >      errorStudieSchuld.classList.add("hidden");</span>
-<span class="cstat-no" title="statement not covered" >    }, 1500);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+    }, 1500);
+  }
+&nbsp;
+  return studieSchuld;
+};
 &nbsp;
 // berekening van de rente, maximale te lenen bedrag en aflossing en hoeveel dat over de jares is in maanden
 const calculation = function (yearlyIncome, studieSchuld, zipcode) {
@@ -531,6 +541,7 @@ const calculation = function (yearlyIncome, studieSchuld, zipcode) {
 &nbsp;
   if (studieSchuld === "yes") <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
 <span class="cstat-no" title="statement not covered" >    maxHypoteekLast *= 0.75;</span>
+<span class="cstat-no" title="statement not covered" >    console.log("studieschuld is ja");</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
   // neemt de renteperiode van 30 jaar, niemand weet hoe de markt verandert.
@@ -586,6 +597,7 @@ submit<span class="branch-0 cbranch-no" title="branch not covered" >?.addEventLi
 <span class="cstat-no" title="statement not covered" >  const zipcode = Number(document.getElementById("zipcode").value);</span>
 <span class="cstat-no" title="statement not covered" >  const rente = Number(document.getElementById("rentejaar").value);</span>
 <span class="cstat-no" title="statement not covered" >  const studieSchuld = document.getElementById("studieschuld").value;</span>
+<span class="cstat-no" title="statement not covered" >  console.log(studieSchuld);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  checkYearlyIncome(yearlyIncome);</span>
 <span class="cstat-no" title="statement not covered" >  const validZipcode = checkZipcode(zipcode);</span>
@@ -602,7 +614,7 @@ submit<span class="branch-0 cbranch-no" title="branch not covered" >?.addEventLi
 <span class="cstat-no" title="statement not covered" >    return;</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const result = calculation(yearlyIncome, rente, studieSchuld, zipcode);</span>
+<span class="cstat-no" title="statement not covered" >  const result = calculation(yearlyIncome, studieSchuld, zipcode);</span>
 <span class="cstat-no" title="statement not covered" >  showResult(result);</span>
 });
 &nbsp;
@@ -634,7 +646,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-10-27T07:15:31.204Z
+                at 2024-10-27T07:34:57.674Z
             </div>
         <script src="prettify.js"></script>
         <script>

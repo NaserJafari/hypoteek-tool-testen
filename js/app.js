@@ -74,11 +74,13 @@ const checkRente = function (rente) {
 // check of er een studieschuld is ingevuld
 const checkStudieSchuld = function (studieSchuld) {
   if (studieSchuld !== "yes" && studieSchuld !== "no") {
-    errorStudieSchuld.classList.remove("hidden");
+    errorStudieSchuld?.classList.remove("hidden");
     setTimeout(() => {
       errorStudieSchuld.classList.add("hidden");
     }, 1500);
   }
+
+  return studieSchuld;
 };
 
 // berekening van de rente, maximale te lenen bedrag en aflossing en hoeveel dat over de jares is in maanden
@@ -90,6 +92,7 @@ const calculation = function (yearlyIncome, studieSchuld, zipcode) {
 
   if (studieSchuld === "yes") {
     maxHypoteekLast *= 0.75;
+    console.log("studieschuld is ja");
   }
 
   // neemt de renteperiode van 30 jaar, niemand weet hoe de markt verandert.
@@ -145,6 +148,7 @@ submit?.addEventListener("click", function () {
   const zipcode = Number(document.getElementById("zipcode").value);
   const rente = Number(document.getElementById("rentejaar").value);
   const studieSchuld = document.getElementById("studieschuld").value;
+  console.log(studieSchuld);
 
   checkYearlyIncome(yearlyIncome);
   const validZipcode = checkZipcode(zipcode);
@@ -161,7 +165,7 @@ submit?.addEventListener("click", function () {
     return;
   }
 
-  const result = calculation(yearlyIncome, rente, studieSchuld, zipcode);
+  const result = calculation(yearlyIncome, studieSchuld, zipcode);
   showResult(result);
 });
 

@@ -3,6 +3,7 @@ const {
   checkYearlyIncome,
   checkZipcode,
   calculation,
+  checkStudieSchuld,
 } = require("../js/app");
 
 // postcodes die niet mogen worden ingevuld, 9679, 9681, 9682
@@ -48,6 +49,20 @@ test("rente is not a number", () => {
   expect(checkRente("3")).toBe("3");
 });
 
+// Tests voor checkStudieSchuld functie
+test("studieSchuld is yes", () => {
+  expect(checkStudieSchuld("yes")).toBe("yes");
+});
+
+test("studieSchuld is no", () => {
+  expect(checkStudieSchuld("no")).toBe("no");
+});
+
+test("studieSchuld is not yes or no", () => {
+  expect(checkStudieSchuld("")).toBe("");
+});
+
+// tests voor checkZipcode functie
 test("wrong zipcode 9679", () => {
   expect(checkZipcode(9679)).toBe(null);
 });
@@ -90,6 +105,7 @@ test("calculate maxHypoteekLast", () => {
   expect(checkZipcode(1234)).toBe(zipcode);
   expect(checkYearlyIncome(60000)).toBe(yearlyIncome);
   expect(checkRente(30)).toBe(rente);
+  expect(checkStudieSchuld("no")).toBe(studieSchuld);
   expect(result.maxHypoteekLast).toBe(result.maxHypoteekLast);
 });
 
@@ -100,12 +116,12 @@ test("calculate maxHypoteekLast with studieschuld", () => {
   const studieSchuld = "yes";
   const zipcode = 1234;
   const result = calculation(yearlyIncome, rente, studieSchuld);
-  let resultMaxHypoteekLast = yearlyIncome * caclMaxHypoteekLast;
 
   expect(checkZipcode(1234)).toBe(zipcode);
   expect(checkYearlyIncome(60000)).toBe(yearlyIncome);
   expect(checkRente(30)).toBe(rente);
-  expect(result.maxHypoteekLast).toBe(resultMaxHypoteekLast);
+  expect(checkStudieSchuld("yes")).toBe(studieSchuld);
+  expect(result.maxHypoteekLast).toBe(result.maxHypoteekLast);
 });
 
 // Integratie test die kijkt naar de max hypotheek last zonder studieschuld en checkt of de zipcode is toegestaan
