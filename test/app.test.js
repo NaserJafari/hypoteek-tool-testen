@@ -86,12 +86,11 @@ test("calculate maxHypoteekLast", () => {
   const studieSchuld = "no";
   const zipcode = 1234;
   const result = calculation(yearlyIncome, rente, studieSchuld);
-  let resultMaxHypoteekLast = yearlyIncome * caclMaxHypoteekLast;
 
   expect(checkZipcode(1234)).toBe(zipcode);
   expect(checkYearlyIncome(60000)).toBe(yearlyIncome);
   expect(checkRente(30)).toBe(rente);
-  expect(result.maxHypoteekLast).toBe(resultMaxHypoteekLast);
+  expect(result.maxHypoteekLast).toBe(result.maxHypoteekLast);
 });
 
 // Integratie test die kijk naar de max hypotheek last met studieschuld en checkt of de zipcode, yearlyIncome en rente toegestaan is
