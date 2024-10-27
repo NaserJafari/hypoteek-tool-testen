@@ -14,6 +14,10 @@ test("yearlyIncome is a number", () => {
   expect(checkYearlyIncome(60000)).toEqual(60000);
 });
 
+test("yearlyIncome is 0", () => {
+  expect(checkYearlyIncome(0)).toBe(0);
+});
+
 test("yearlyIncome is not a number", () => {
   expect(checkYearlyIncome("60000")).toBe("60000");
 });
@@ -21,6 +25,10 @@ test("yearlyIncome is not a number", () => {
 // Tests voor de checkZipcode functie
 test("zipcode is a number", () => {
   expect(checkZipcode(1234)).toBe(1234);
+});
+
+test("zipcode is 0", () => {
+  expect(checkZipcode(0)).toBe(0);
 });
 
 test("zipcode is not a number", () => {
@@ -32,11 +40,26 @@ test("rente is a number", () => {
   expect(checkRente(3)).toBe(3);
 });
 
+test("rente is 0", () => {
+  expect(checkRente(0)).toBe(0);
+});
+
 test("rente is not a number", () => {
   expect(checkRente("3")).toBe("3");
 });
 
-// test calculate functie met verschillende waardes en input
+test("wrong zipcode 9679", () => {
+  expect(checkZipcode(9679)).toBe(null);
+});
+
+test("wrong zipcode 9681", () => {
+  expect(checkZipcode(9681)).toBe(null);
+});
+
+test("wrong zipcode 9682", () => {
+  expect(checkZipcode(9682)).toBe(null);
+});
+
 test("calculate maxHypoteekLast with 40000 yearlyIncome", () => {
   const yearlyIncome = 40000;
   const rente = 20;

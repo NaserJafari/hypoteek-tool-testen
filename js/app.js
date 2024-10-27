@@ -29,7 +29,7 @@ const monthRente = {
 
 const checkYearlyIncome = function (yearlyIncome) {
   if (yearlyIncome === 0 || isNaN(yearlyIncome)) {
-    errorYearlyIncome.classList.remove("hidden");
+    errorYearlyIncome?.classList.remove("hidden");
     setTimeout(() => {
       errorYearlyIncome.classList.add("hidden");
     }, 1500);
@@ -44,7 +44,7 @@ dan geeft het een error message die erbij hoort
 */
 const checkZipcode = function (zipcode) {
   if (zipcode === 0 || isNaN(zipcode)) {
-    errorNoZipcode.classList.remove("hidden");
+    errorNoZipcode?.classList.remove("hidden");
     setTimeout(() => {
       errorNoZipcode.classList.add("hidden");
     }, 1500);
@@ -62,7 +62,7 @@ const checkZipcode = function (zipcode) {
 
 const checkRente = function (rente) {
   if (rente === 0 || isNaN(rente)) {
-    errorRente.classList.remove("hidden");
+    errorRente?.classList.remove("hidden");
     setTimeout(() => {
       errorRente.classList.add("hidden");
     }, 1500);
