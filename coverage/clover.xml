@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1730014497701" clover="3.2.0">
-  <project timestamp="1730014497701" name="All files">
+<coverage generated="1730015269067" clover="3.2.0">
+  <project timestamp="1730015269067" name="All files">
     <metrics statements="192" coveredstatements="128" conditionals="31" coveredconditionals="23" methods="6" coveredmethods="5" elements="229" coveredelements="156" complexity="0" loc="192" ncloc="192" packages="1" files="1" classes="1"/>
     <file name="app.js" path="C:\Users\Nasid\Documenten\School\Testen\Leerjaar 4\hypoteek tool\js\app.js">
       <metrics statements="192" coveredstatements="128" conditionals="31" coveredconditionals="23" methods="6" coveredmethods="5"/>
