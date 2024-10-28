@@ -100,12 +100,13 @@ test("calculate maxHypoteekLast", () => {
   const rente = 30;
   const studieSchuld = "no";
   const zipcode = 1234;
-  const result = calculation(yearlyIncome, rente, studieSchuld);
 
   expect(checkZipcode(1234)).toBe(zipcode);
   expect(checkYearlyIncome(60000)).toBe(yearlyIncome);
   expect(checkRente(30)).toBe(rente);
   expect(checkStudieSchuld("no")).toBe(studieSchuld);
+
+  const result = calculation(yearlyIncome, rente, studieSchuld);
   expect(result.maxHypoteekLast).toBe(result.maxHypoteekLast);
 });
 
@@ -115,12 +116,13 @@ test("calculate maxHypoteekLast with studieschuld", () => {
   const rente = 30;
   const studieSchuld = "yes";
   const zipcode = 1234;
-  const result = calculation(yearlyIncome, rente, studieSchuld);
 
   expect(checkZipcode(1234)).toBe(zipcode);
   expect(checkYearlyIncome(60000)).toBe(yearlyIncome);
   expect(checkRente(30)).toBe(rente);
   expect(checkStudieSchuld("yes")).toBe(studieSchuld);
+
+  const result = calculation(yearlyIncome, rente, studieSchuld);
   expect(result.maxHypoteekLast).toBe(result.maxHypoteekLast);
 });
 
